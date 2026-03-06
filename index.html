@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Aida Sam – Portfolio</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <div class="brand">
+          <span class="brand-mark">AS</span>
+          <span class="brand-name">Aida Sam</span>
+        </div>
+        <nav class="nav">
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-inner">
+          <div class="hero-copy">
+            <p class="eyebrow">Graphic Designer & Visual Storyteller</p>
+            <h1>Thoughtful visuals for brands that care about detail.</h1>
+            <p class="hero-text">
+              I’m Aida, a graphic designer crafting expressive identities,
+              editorial layouts, and campaigns that feel considered and
+              timeless.
+            </p>
+            <div class="hero-actions">
+              <a href="#projects" class="button primary">View selected work</a>
+              <a href="#contact" class="button ghost">Get in touch</a>
+            </div>
+          </div>
+          <div class="hero-preview">
+            <div class="preview-card">
+              <img
+                src="IMG_3745.jpg"
+                alt="LUME coffee & bakery brand mockup"
+                loading="lazy"
+              />
+              <div class="preview-meta">
+                <span class="tag">Branding</span>
+                <h2>LUME coffee & bakery</h2>
+                <p>Campaign imagery, packaging and café touchpoints.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="section">
+        <div class="container two-column">
+          <div>
+            <h2>About Aida</h2>
+          </div>
+          <div class="section-text">
+            <p>
+              Aida is a graphic designer focused on brand identities, print and
+              digital experiences. Her work balances clean typography with warm,
+              tactile details to make brands feel human and memorable.
+            </p>
+            <p>
+              From early concepts to final production files, she guides clients
+              through a clear process—listening carefully, exploring visually,
+              and refining until every detail feels right.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="section section-alt">
+        <div class="container">
+          <div class="section-header">
+            <h2>Selected projects</h2>
+            <p>
+              A concise selection of client and self-initiated work. Each
+              project page includes a short story, process notes and visuals.
+            </p>
+          </div>
+
+          <div class="projects-grid">
+            <a href="project-lume.html" class="project-card">
+              <div class="project-image">
+                <img
+                  src="IMG_3745.jpg"
+                  alt="LUME coffee & bakery campaign imagery"
+                  loading="lazy"
+                />
+              </div>
+              <div class="project-content">
+                <span class="tag">Brand Identity · Campaign</span>
+                <h3>LUME coffee & bakery</h3>
+                <p>
+                  Visual identity, packaging and launch materials for a
+                  neighbourhood café.
+                </p>
+                <span class="project-link">View project →</span>
+              </div>
+            </a>
+
+            <a href="project-02.html" class="project-card">
+              <div class="project-placeholder">Project 02</div>
+              <div class="project-content">
+                <span class="tag">Editorial · Layout</span>
+                <h3>Title to come</h3>
+                <p>
+                  Space reserved for a future editorial or publication design
+                  project.
+                </p>
+                <span class="project-link">View project →</span>
+              </div>
+            </a>
+
+            <a href="project-03.html" class="project-card">
+              <div class="project-placeholder">Project 03</div>
+              <div class="project-content">
+                <span class="tag">Visual Identity</span>
+                <h3>Title to come</h3>
+                <p>
+                  Space reserved for another branding or logo-focused case
+                  study.
+                </p>
+                <span class="project-link">View project →</span>
+              </div>
+            </a>
+
+            <a href="project-04.html" class="project-card">
+              <div class="project-placeholder">Project 04</div>
+              <div class="project-content">
+                <span class="tag">Digital · Social</span>
+                <h3>Title to come</h3>
+                <p>
+                  Space reserved for a digital campaign, social templates or
+                  web-focused project.
+                </p>
+                <span class="project-link">View project →</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section">
+        <div class="container two-column">
+          <div>
+            <h2>Contact</h2>
+          </div>
+          <div class="section-text">
+            <p>
+              Interested in working together or seeing more projects? Send an
+              email with a short note about your brand, timeline and any
+              references you like.
+            </p>
+            <p class="contact-links">
+              <a href="mailto:hello@aidasam.com" class="button primary small"
+                >Email Aida</a
+              >
+              <span class="contact-inline">
+                or visit
+                <a href="https://github.com/" target="_blank" rel="noreferrer"
+                  >GitHub</a
+                >
+                / your preferred platform.
+              </span>
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <span>© <span id="year"></span> Aida Sam. All rights reserved.</span>
+        <span class="footer-meta">Portfolio built for GitHub Pages.</span>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent =
+        new Date().getFullYear().toString();
+    </script>
+  </body>
+  </html>
+
