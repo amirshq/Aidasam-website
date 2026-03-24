@@ -47,7 +47,7 @@
     .projects { display:flex; flex-direction:column; gap:28px; }
 
     .project-options { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
-    .project-option { border:1px solid var(--border); background:var(--surface); cursor:pointer; text-align:left; transition:border-color .3s, transform .3s, background .3s; overflow:hidden; }
+    .project-option { border:1px solid var(--border); background:var(--surface); cursor:pointer; text-align:left; transition:border-color .3s, transform .3s, background .3s; overflow:hidden; display:block; text-decoration:none; }
     .project-option:hover { border-color:rgba(212,168,83,.45); background:var(--surface2); transform:translateY(-2px); }
     .project-option.active { border-color:var(--accent); }
 
@@ -56,9 +56,7 @@
     .project-label { padding:14px 16px; font-size:.62rem; letter-spacing:.2em; text-transform:uppercase; color:var(--text); border-top:1px solid var(--border); }
 
     .proj-img-cover { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:1; }
-    .project-display { width:100%; background:#000; border:1px solid var(--border); }
-    .project-display img { width:100%; height:auto; display:none; }
-    .project-display img.active { display:block; }
+    .project-help { font-size:.62rem; letter-spacing:.18em; text-transform:uppercase; color:var(--muted); }
 
     #contact { padding:160px 56px; position:relative; overflow:hidden; background:var(--surface); border-top:1px solid var(--border); }
     .contact-bg { position:absolute; font-family:'Playfair Display',serif; font-size:clamp(6rem,16vw,16rem); font-weight:400; color:rgba(255,255,255,.02); bottom:-20px; right:0; pointer-events:none; user-select:none; white-space:nowrap; letter-spacing:-.05em; }
@@ -117,24 +115,20 @@
 
 <section id="work">
   <div class="projects">
-    <div class="project-options reveal">
-      <button class="project-option active" data-project="lume" type="button">
+    <div class="project-help reveal">Click a project to open full resolution image</div>
+    <div class="project-options reveal reveal-d1">
+      <a class="project-option active" href="Lume.jpg" target="_blank" rel="noopener noreferrer" aria-label="Open Lume full resolution image">
         <div class="proj-visual">
           <img class="proj-img-cover" src="IMG_3745.jpg" alt="LUME coffee & bakery header" />
         </div>
         <div class="project-label">Lume</div>
-      </button>
-      <button class="project-option" data-project="vela" type="button">
+      </a>
+      <a class="project-option" href="Vela shades final.jpg" target="_blank" rel="noopener noreferrer" aria-label="Open Vela Shades full resolution image">
         <div class="proj-visual">
           <img class="proj-img-cover" src="Vela shades final.jpg" alt="Vela shades header" />
         </div>
         <div class="project-label">Vela shades</div>
-      </button>
-    </div>
-
-    <div class="project-display reveal reveal-d1">
-      <img class="project-image active" data-project-image="lume" src="Lume.jpg" alt="Lume full project visuals" />
-      <img class="project-image" data-project-image="vela" src="Vela shades final.jpg" alt="Vela shades full project visuals" />
+      </a>
     </div>
   </div>
 </section>
@@ -181,20 +175,6 @@
   document.querySelectorAll('a,button').forEach(el=>{
     el.addEventListener('mouseenter',()=>{cur.style.width='14px';cur.style.height='14px';ring.style.opacity='0.8';});
     el.addEventListener('mouseleave',()=>{cur.style.width='8px';cur.style.height='8px';ring.style.opacity='0.4';});
-  });
-
-  // Project selector
-  const projectOptions = document.querySelectorAll('.project-option');
-  const projectImages = document.querySelectorAll('.project-image');
-  projectOptions.forEach(option => {
-    option.addEventListener('click', () => {
-      const selected = option.dataset.project;
-      projectOptions.forEach(item => item.classList.remove('active'));
-      option.classList.add('active');
-      projectImages.forEach(image => {
-        image.classList.toggle('active', image.dataset.projectImage === selected);
-      });
-    });
   });
 
   // Scroll reveal
