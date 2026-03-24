@@ -44,28 +44,21 @@
     .sec-title em { font-style:italic; color:var(--accent); }
     .sec-count { font-family:'Playfair Display',serif; font-size:4rem; font-weight:400; color:var(--border); line-height:1; }
 
-    .projects { display:flex; flex-direction:column; gap:32px; }
+    .projects { display:flex; flex-direction:column; gap:28px; }
 
-    .proj-card { display:grid; grid-template-columns:1fr; background:var(--surface); overflow:hidden; cursor:none; transition:background .4s; border:1px solid var(--border); }
-    .proj-card:nth-child(even) { direction:rtl; }
-    .proj-card:nth-child(even) > * { direction:ltr; }
-    .proj-card:hover { background:var(--surface2); }
+    .project-options { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+    .project-option { border:1px solid var(--border); background:var(--surface); cursor:pointer; text-align:left; transition:border-color .3s, transform .3s, background .3s; overflow:hidden; }
+    .project-option:hover { border-color:rgba(212,168,83,.45); background:var(--surface2); transform:translateY(-2px); }
+    .project-option.active { border-color:var(--accent); }
 
-    .proj-visual { position:relative; overflow:hidden; aspect-ratio:16/9; min-height:360px; }
-    .proj-visual-bg { position:absolute; inset:0; transition:transform .8s cubic-bezier(.25,.46,.45,.94); }
-    .proj-card:hover .proj-visual-bg { transform:scale(1.04); }
-    .v1 { background:linear-gradient(135deg,var(--p1) 0%,#2E4A34 50%,#1A3020 100%); }
-    .v2 { background:linear-gradient(135deg,var(--p2) 0%,#3D2A45 50%,#251535 100%); }
-    .v3 { background:linear-gradient(135deg,var(--p3) 0%,#4A3015 50%,#2A1A08 100%); }
-    .v4 { background:linear-gradient(135deg,var(--p4) 0%,#153040 50%,#0A1A25 100%); }
+    .proj-visual { position:relative; overflow:hidden; aspect-ratio:16/10; min-height:280px; }
 
-    .proj-visual-overlay { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; }
-    .proj-visual-num { font-family:'Playfair Display',serif; font-size:8rem; font-weight:400; color:rgba(255,255,255,.06); letter-spacing:-.05em; transition:color .4s,transform .4s; }
-    .proj-card:hover .proj-visual-num { color:rgba(255,255,255,.1); transform:scale(1.05); }
+    .project-label { padding:14px 16px; font-size:.62rem; letter-spacing:.2em; text-transform:uppercase; color:var(--text); border-top:1px solid var(--border); }
 
     .proj-img-cover { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:1; }
-    .proj-long { width:100%; background:#000; }
-    .proj-long img { width:100%; height:auto; display:block; }
+    .project-display { width:100%; background:#000; border:1px solid var(--border); }
+    .project-display img { width:100%; height:auto; display:none; }
+    .project-display img.active { display:block; }
 
     #contact { padding:160px 56px; position:relative; overflow:hidden; background:var(--surface); border-top:1px solid var(--border); }
     .contact-bg { position:absolute; font-family:'Playfair Display',serif; font-size:clamp(6rem,16vw,16rem); font-weight:400; color:rgba(255,255,255,.02); bottom:-20px; right:0; pointer-events:none; user-select:none; white-space:nowrap; letter-spacing:-.05em; }
@@ -94,7 +87,7 @@
     @media(max-width:900px){
       nav{padding:20px 24px;} .nav-r a:not(.nav-cta){display:none;}
       .hero,#work,#contact{padding-left:24px;padding-right:24px;} .hero{padding-bottom:60px;}
-      .proj-card{grid-template-columns:1fr;direction:ltr!important;} .proj-card:nth-child(even)>*{direction:ltr;}
+      .project-options{grid-template-columns:1fr;}
       .proj-visual{min-height:260px;}
       .contact-inner{grid-template-columns:1fr;gap:48px;} .contact-right{grid-template-columns:1fr 1fr;}
       footer{flex-direction:column;gap:8px;} .sec-head{flex-direction:column;align-items:flex-start;gap:8px;}
@@ -124,29 +117,25 @@
 
 <section id="work">
   <div class="projects">
-
-    <!-- ═══ PROJECT 1 ═══ -->
-    <div class="proj-card reveal">
-      <div class="proj-visual">
-        <div class="proj-visual-bg v1"></div>
-        <img class="proj-img-cover" src="IMG_3745.jpg" alt="LUME coffee & bakery branding" />
-      </div>
-      <div class="proj-long">
-        <img src="Lume.jpg" alt="LUME full project visuals" />
-      </div>
+    <div class="project-options reveal">
+      <button class="project-option active" data-project="lume" type="button">
+        <div class="proj-visual">
+          <img class="proj-img-cover" src="IMG_3745.jpg" alt="LUME coffee & bakery header" />
+        </div>
+        <div class="project-label">Lume</div>
+      </button>
+      <button class="project-option" data-project="vela" type="button">
+        <div class="proj-visual">
+          <img class="proj-img-cover" src="Vela shades final.jpg" alt="Vela shades header" />
+        </div>
+        <div class="project-label">Vela shades</div>
+      </button>
     </div>
 
-    <!-- ═══ PROJECT 2 ═══ -->
-    <div class="proj-card reveal reveal-d1">
-      <div class="proj-visual">
-        <div class="proj-visual-bg v2"></div>
-        <img class="proj-img-cover" src="Vela shades final.jpg" alt="Vela shades branding header" />
-      </div>
-      <div class="proj-long">
-        <img src="Vela shades final.jpg" alt="Vela shades full project visuals" />
-      </div>
+    <div class="project-display reveal reveal-d1">
+      <img class="project-image active" data-project-image="lume" src="Lume.jpg" alt="Lume full project visuals" />
+      <img class="project-image" data-project-image="vela" src="Vela shades final.jpg" alt="Vela shades full project visuals" />
     </div>
-
   </div>
 </section>
 
@@ -192,6 +181,20 @@
   document.querySelectorAll('a,button').forEach(el=>{
     el.addEventListener('mouseenter',()=>{cur.style.width='14px';cur.style.height='14px';ring.style.opacity='0.8';});
     el.addEventListener('mouseleave',()=>{cur.style.width='8px';cur.style.height='8px';ring.style.opacity='0.4';});
+  });
+
+  // Project selector
+  const projectOptions = document.querySelectorAll('.project-option');
+  const projectImages = document.querySelectorAll('.project-image');
+  projectOptions.forEach(option => {
+    option.addEventListener('click', () => {
+      const selected = option.dataset.project;
+      projectOptions.forEach(item => item.classList.remove('active'));
+      option.classList.add('active');
+      projectImages.forEach(image => {
+        image.classList.toggle('active', image.dataset.projectImage === selected);
+      });
+    });
   });
 
   // Scroll reveal
