@@ -3,258 +3,542 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aida Samzargar | Graphic Designer</title>
+  <title>Aida Samzargar — Graphic Designer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg: #050505;
-      --surface: #0d0d0d;
-      --text: #f4f4f4;
-      --muted: #8f8f8f;
-      --line: rgba(255, 255, 255, 0.08);
+      --bg: #060606;
+      --surface: #0e0e0e;
+      --card-bg: #111;
+      --text: #eaeaea;
+      --text-dim: #7a7a7a;
+      --accent: #c8b07a;
+      --accent-soft: rgba(200, 176, 122, 0.12);
+      --line: rgba(255, 255, 255, 0.06);
+      --serif: "Cormorant Garamond", Georgia, serif;
+      --sans: "DM Sans", -apple-system, sans-serif;
+      --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
 
     body {
-      font-family: "Inter", sans-serif;
+      font-family: var(--sans);
       background: var(--bg);
       color: var(--text);
       min-height: 100vh;
-      line-height: 1.45;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
     }
 
+    /* ── Grain overlay ── */
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: 180px;
+    }
+
+    /* ── Page container ── */
     .page {
-      width: min(1360px, 96vw);
+      width: min(1320px, 92vw);
       margin: 0 auto;
-      padding: 22px 0 54px;
+      padding: 0 0 100px;
     }
 
-    .nav {
+    /* ── Navigation ── */
+    nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 56px;
-      border-bottom: 1px solid var(--line);
-      padding-bottom: 14px;
+      padding: 28px 0;
+      opacity: 0;
+      animation: fadeDown 0.8s var(--ease-out) 0.1s forwards;
     }
 
-    .nav-left {
+    .nav-logo {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: 18px;
+      letter-spacing: 0.04em;
+      color: var(--text);
+    }
+
+    .nav-logo span { color: var(--accent); }
+
+    .nav-links {
       display: flex;
-      gap: 24px;
-      font-size: 12px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--muted);
+      gap: 32px;
+      list-style: none;
     }
 
-    .brand {
-      font-size: 32px;
+    .nav-links a {
+      font-size: 11px;
       font-weight: 500;
-      text-align: center;
-      letter-spacing: 0.02em;
-      max-width: 760px;
-      margin: 0 auto 44px;
-    }
-
-    .helper {
-      text-align: center;
-      color: var(--muted);
-      margin-top: 8px;
-      margin-bottom: 28px;
-      font-size: 12px;
-    }
-
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 24px;
-    }
-
-    .project-card {
-      border: 1px solid var(--line);
-      background: var(--surface);
-      overflow: hidden;
-      border-radius: 10px;
-      transition: transform 0.22s ease, border-color 0.22s ease;
-      cursor: pointer;
-      color: inherit;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
       text-decoration: none;
+      color: var(--text-dim);
+      transition: color 0.3s;
+      position: relative;
     }
 
-    .project-card:hover {
-      transform: translateY(-3px);
-      border-color: rgba(255, 255, 255, 0.2);
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--accent);
+      transition: width 0.4s var(--ease-out);
     }
 
-    .project-card img {
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a:hover::after { width: 100%; }
+
+    /* ── Divider ── */
+    .divider {
+      height: 1px;
+      background: var(--line);
+      opacity: 0;
+      animation: fadeIn 0.6s var(--ease-out) 0.3s forwards;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      padding: 80px 0 90px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      opacity: 0;
+      animation: fadeUp 1s var(--ease-out) 0.4s forwards;
+    }
+
+    .hero-eyebrow {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-family: var(--serif);
+      font-weight: 300;
+      font-size: clamp(38px, 5.4vw, 68px);
+      line-height: 1.15;
+      max-width: 800px;
+      letter-spacing: -0.01em;
+      color: var(--text);
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .hero-sub {
+      margin-top: 26px;
+      font-size: 14px;
+      color: var(--text-dim);
+      font-weight: 300;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-sub span {
+      display: inline-block;
+      width: 28px;
+      height: 1px;
+      background: var(--accent);
+      vertical-align: middle;
+      margin: 0 10px;
+    }
+
+    /* ── Section header ── */
+    .section-label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 40px;
+      opacity: 0;
+      animation: fadeUp 0.8s var(--ease-out) 0.7s forwards;
+    }
+
+    /* ── Projects grid ── */
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+    }
+
+    .card {
+      position: relative;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      overflow: hidden;
+      background: var(--card-bg);
+      cursor: pointer;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .card:nth-child(1) { animation: fadeUp 0.9s var(--ease-out) 0.9s forwards; }
+    .card:nth-child(2) { animation: fadeUp 0.9s var(--ease-out) 1.1s forwards; }
+
+    .card-img-wrap {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-img-wrap img {
       width: 100%;
-      height: 430px;
+      height: 460px;
       object-fit: cover;
       display: block;
+      transition: transform 0.7s var(--ease-out), filter 0.7s var(--ease-out);
+      filter: brightness(0.92) saturate(0.95);
     }
 
-    .project-card .name {
-      padding: 12px 14px 14px;
-      font-size: 11px;
-      text-transform: uppercase;
+    .card:hover .card-img-wrap img {
+      transform: scale(1.04);
+      filter: brightness(1) saturate(1);
+    }
+
+    /* overlay gradient */
+    .card-img-wrap::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        0deg,
+        rgba(6, 6, 6, 0.7) 0%,
+        rgba(6, 6, 6, 0) 50%
+      );
+      pointer-events: none;
+      transition: opacity 0.5s;
+    }
+
+    .card:hover .card-img-wrap::after {
+      opacity: 0.6;
+    }
+
+    .card-info {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 22px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      pointer-events: none;
+    }
+
+    .card-name {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: 22px;
+      letter-spacing: 0.02em;
+    }
+
+    .card-tag {
+      font-size: 10px;
+      font-weight: 500;
       letter-spacing: 0.2em;
-      color: #dadada;
+      text-transform: uppercase;
+      color: var(--accent);
+      opacity: 0;
+      transform: translateY(6px);
+      transition: opacity 0.4s, transform 0.4s var(--ease-out);
     }
 
-    .modal {
+    .card:hover .card-tag {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── Modal / Lightbox ── */
+    .modal-overlay {
       position: fixed;
       inset: 0;
-      display: none;
+      background: rgba(0, 0, 0, 0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      z-index: 2000;
+      display: flex;
       align-items: center;
       justify-content: center;
-      background: rgba(0, 0, 0, 0.84);
-      z-index: 1000;
-      padding: 28px;
+      padding: 32px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s var(--ease-out);
     }
 
-    .modal.open {
-      display: flex;
+    .modal-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
     }
 
-    .modal-inner {
-      width: min(1200px, 100%);
-      max-height: 92vh;
+    .modal-box {
+      width: min(1100px, 100%);
+      max-height: 90vh;
       overflow: auto;
-      background: #0c0c0c;
+      background: #0b0b0b;
       border: 1px solid var(--line);
-      border-radius: 10px;
+      border-radius: 14px;
+      transform: scale(0.96) translateY(12px);
+      transition: transform 0.45s var(--ease-out);
     }
 
-    .modal-head {
+    .modal-overlay.open .modal-box {
+      transform: scale(1) translateY(0);
+    }
+
+    .modal-header {
       position: sticky;
       top: 0;
       z-index: 1;
-      background: #0c0c0c;
+      background: rgba(11, 11, 11, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 14px 16px;
+      padding: 16px 22px;
       border-bottom: 1px solid var(--line);
     }
 
-    .modal-title {
-      font-size: 11px;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: #e5e5e5;
+    .modal-project-name {
+      font-family: var(--serif);
+      font-size: 16px;
+      font-weight: 400;
+      letter-spacing: 0.03em;
     }
 
-    .close-btn {
+    .modal-close {
+      appearance: none;
       border: 1px solid var(--line);
-      background: #171717;
-      color: #fff;
-      font-size: 12px;
-      letter-spacing: 0.1em;
+      background: transparent;
+      color: var(--text-dim);
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      padding: 8px 11px;
+      padding: 9px 16px;
+      border-radius: 8px;
       cursor: pointer;
-      border-radius: 6px;
+      transition: color 0.3s, border-color 0.3s;
     }
 
-    .modal-image {
+    .modal-close:hover {
+      color: var(--text);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .modal-body img {
       width: 100%;
       height: auto;
       display: block;
     }
 
-    @media (max-width: 800px) {
-      .brand { font-size: 26px; }
+    /* ── Footer ── */
+    footer {
+      margin-top: 100px;
+      padding: 40px 0;
+      border-top: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      opacity: 0;
+      animation: fadeIn 0.8s var(--ease-out) 1.4s forwards;
+    }
 
-      .projects-grid {
+    .footer-left {
+      font-family: var(--serif);
+      font-size: 14px;
+      color: var(--text-dim);
+      font-weight: 300;
+    }
+
+    .footer-right {
+      display: flex;
+      gap: 28px;
+    }
+
+    .footer-right a {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--text-dim);
+      transition: color 0.3s;
+    }
+
+    .footer-right a:hover { color: var(--accent); }
+
+    /* ── Keyframes ── */
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-14px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 860px) {
+      .hero { padding: 56px 0 64px; }
+
+      .projects {
         grid-template-columns: 1fr;
+        gap: 20px;
       }
 
-      .project-card img { height: 320px; }
+      .card-img-wrap img { height: 340px; }
+
+      footer {
+        flex-direction: column;
+        gap: 18px;
+        text-align: center;
+      }
     }
+
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 32px; }
+      .card-img-wrap img { height: 260px; }
+      .nav-links { gap: 20px; }
+    }
+
+    /* ── Scrollbar ── */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: #222; border-radius: 4px; }
   </style>
 </head>
 <body>
+
   <main class="page">
-    <header class="nav">
-      <div class="nav-left">
-        <span>Work</span>
-        <span>Contact</span>
-      </div>
-    </header>
 
-    <h1 class="brand">Hi!, I am Aida Samzargar. I'm a Graphic Designer based in Montreal, Canada.</h1>
-    <p class="helper">Click a project image to open full details.</p>
+    <!-- Navigation -->
+    <nav>
+      <div class="nav-logo">Aida<span>.</span></div>
+      <ul class="nav-links">
+        <li><a href="#work">Work</a></li>
+        <li><a href="mailto:contact@aidasam.com">Contact</a></li>
+      </ul>
+    </nav>
 
-    <section class="projects-grid">
-      <button class="project-card" data-title="Lume" data-image="Lume.jpg" aria-label="Open Lume details">
-        <img src="Lume.jpg" alt="Lume project preview" />
-        <div class="name">Lume</div>
-      </button>
+    <div class="divider"></div>
 
-      <button class="project-card" data-title="Vela Shades" data-image="Vela shades final.jpg" aria-label="Open Vela Shades details">
-        <img src="Vela shades final.jpg" alt="Vela Shades project preview" />
-        <div class="name">Vela Shades</div>
-      </button>
+    <!-- Hero -->
+    <section class="hero">
+      <p class="hero-eyebrow">Graphic Designer — Montreal</p>
+      <h1>Hi! I am Aida Samzargar. I'm a Graphic Designer based in Montreal, Canada.</h1>
     </section>
+
+    <!-- Projects -->
+    <p class="section-label" id="work">Selected Work</p>
+
+    <section class="projects">
+      <article class="card" data-title="Lume" data-img="Lume.jpg" data-tag="Branding">
+        <div class="card-img-wrap">
+          <img src="Lume.jpg" alt="Lume — branding project" loading="lazy" />
+        </div>
+        <div class="card-info">
+          <span class="card-name">Lume</span>
+          <span class="card-tag">View Project</span>
+        </div>
+      </article>
+
+      <article class="card" data-title="Vela Shades" data-img="Vela shades final.jpg" data-tag="Packaging">
+        <div class="card-img-wrap">
+          <img src="Vela shades final.jpg" alt="Vela Shades — packaging project" loading="lazy" />
+        </div>
+        <div class="card-info">
+          <span class="card-name">Vela Shades</span>
+          <span class="card-tag">View Project</span>
+        </div>
+      </article>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-left">&copy; 2026 Aida Samzargar</div>
+      <div class="footer-right">
+        <a href="mailto:contact@aidasam.com">Email</a>
+        <a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </footer>
+
   </main>
 
-  <div class="modal" id="projectModal" aria-hidden="true">
-    <div class="modal-inner">
-      <div class="modal-head">
-        <div class="modal-title" id="modalTitle"></div>
-        <button class="close-btn" id="closeModal" type="button">Close</button>
+  <!-- Lightbox Modal -->
+  <div class="modal-overlay" id="lightbox" role="dialog" aria-hidden="true">
+    <div class="modal-box">
+      <div class="modal-header">
+        <span class="modal-project-name" id="lightboxTitle"></span>
+        <button class="modal-close" id="lightboxClose" type="button">Close</button>
       </div>
-      <img class="modal-image" id="modalImage" src="" alt="" />
+      <div class="modal-body">
+        <img id="lightboxImg" src="" alt="" />
+      </div>
     </div>
   </div>
 
   <script>
-    const modal = document.getElementById("projectModal");
-    const modalTitle = document.getElementById("modalTitle");
-    const modalImage = document.getElementById("modalImage");
-    const closeModal = document.getElementById("closeModal");
-    const cards = document.querySelectorAll(".project-card");
+    (() => {
+      const overlay = document.getElementById("lightbox");
+      const lbTitle = document.getElementById("lightboxTitle");
+      const lbImg   = document.getElementById("lightboxImg");
+      const lbClose = document.getElementById("lightboxClose");
 
-    cards.forEach((card) => {
-      card.addEventListener("click", () => {
-        const title = card.dataset.title;
-        const image = card.dataset.image;
-
-        modalTitle.textContent = title;
-        modalImage.src = image;
-        modalImage.alt = title + " full project details";
-        modal.classList.add("open");
-        modal.setAttribute("aria-hidden", "false");
+      document.querySelectorAll(".card").forEach(card => {
+        card.addEventListener("click", () => {
+          lbTitle.textContent = card.dataset.title;
+          lbImg.src = card.dataset.img;
+          lbImg.alt = card.dataset.title + " — full project view";
+          overlay.classList.add("open");
+          overlay.setAttribute("aria-hidden", "false");
+          document.body.style.overflow = "hidden";
+        });
       });
-    });
 
-    const closeProjectModal = () => {
-      modal.classList.remove("open");
-      modal.setAttribute("aria-hidden", "true");
-      modalImage.src = "";
-      modalImage.alt = "";
-    };
+      const close = () => {
+        overlay.classList.remove("open");
+        overlay.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+        setTimeout(() => { lbImg.src = ""; }, 400);
+      };
 
-    closeModal.addEventListener("click", closeProjectModal);
-
-    modal.addEventListener("click", (event) => {
-      if (event.target === modal) {
-        closeProjectModal();
-      }
-    });
-
-    document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape" && modal.classList.contains("open")) {
-        closeProjectModal();
-      }
-    });
+      lbClose.addEventListener("click", close);
+      overlay.addEventListener("click", e => { if (e.target === overlay) close(); });
+      document.addEventListener("keydown", e => { if (e.key === "Escape") close(); });
+    })();
   </script>
+
 </body>
 </html>
