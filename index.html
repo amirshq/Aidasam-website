@@ -28,27 +28,13 @@
     .nav-cta { color:var(--bg) !important; background:var(--accent); padding:10px 22px; transition:background .3s !important; }
     .nav-cta:hover { background:var(--accent2) !important; color:var(--text) !important; }
 
-    .hero { min-height:100vh; display:flex; flex-direction:column; justify-content:flex-end; padding:0 56px 80px; position:relative; overflow:hidden; }
+    .hero { min-height:100vh; display:flex; flex-direction:column; justify-content:center; padding:0 56px; position:relative; overflow:hidden; }
     .hero-bg {
       position:absolute; inset:0;
-      background:
-        linear-gradient(145deg, rgba(14,13,12,0.9) 0%, rgba(14,13,12,0.6) 40%, rgba(14,13,12,0.95) 100%),
-        url("IMG_3745.jpg") center center / cover no-repeat;
+      background:#000;
     }
-    .hero-grid { position:absolute; inset:0; background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px); background-size:60px 60px; mix-blend-mode:soft-light; }
-    .hero-num { position:absolute; top:0; right:56px; font-family:'Playfair Display',serif; font-size:clamp(12rem,22vw,22rem); font-weight:400; color:rgba(255,255,255,.055); line-height:1; pointer-events:none; user-select:none; letter-spacing:-.05em; }
-    .hero-content { position:relative; z-index:2; max-width:760px; }
-    .hero-eyebrow { font-size:.6rem; letter-spacing:.35em; text-transform:uppercase; color:var(--accent); margin-bottom:20px; opacity:0; animation:up .8s .2s ease forwards; }
-    .hero-title { font-family:'Playfair Display',serif; font-size:clamp(3.5rem,7vw,7rem); font-weight:400; line-height:.95; letter-spacing:-.02em; opacity:0; animation:up .9s .4s ease forwards; }
-    .hero-title em { font-style:italic; color:var(--accent); }
-    .hero-sub { margin-top:32px; max-width:440px; font-size:.75rem; line-height:1.9; color:var(--muted); opacity:0; animation:up .9s .6s ease forwards; }
-    .hero-actions { margin-top:48px; display:flex; gap:24px; align-items:center; opacity:0; animation:up .9s .8s ease forwards; }
-    .btn-primary { display:inline-flex; align-items:center; gap:12px; text-decoration:none; color:var(--bg); background:var(--accent); font-size:.65rem; letter-spacing:.2em; text-transform:uppercase; padding:14px 28px; transition:background .3s,gap .3s; }
-    .btn-primary:hover { background:var(--accent2); gap:18px; }
-    .btn-ghost { font-size:.65rem; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); text-decoration:none; border-bottom:1px solid var(--border); padding-bottom:3px; transition:color .3s,border-color .3s; }
-    .btn-ghost:hover { color:var(--text); border-color:var(--accent); }
-    .hero-scroll { position:absolute; bottom:40px; right:56px; writing-mode:vertical-rl; font-size:.55rem; letter-spacing:.3em; text-transform:uppercase; color:var(--muted); display:flex; align-items:center; gap:12px; opacity:0; animation:up 1s 1.2s ease forwards; }
-    .hero-scroll-line { width:1px; height:50px; background:linear-gradient(var(--accent),transparent); }
+    .hero-content { position:relative; z-index:2; max-width:860px; }
+    .hero-title { font-family:'Playfair Display',serif; font-size:clamp(2.2rem,5vw,4.2rem); font-weight:400; line-height:1.2; letter-spacing:-.01em; opacity:0; animation:up .9s .2s ease forwards; color:var(--text); }
 
     #work { padding:140px 56px 80px; }
     .sec-head { display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:72px; }
@@ -58,14 +44,14 @@
     .sec-title em { font-style:italic; color:var(--accent); }
     .sec-count { font-family:'Playfair Display',serif; font-size:4rem; font-weight:400; color:var(--border); line-height:1; }
 
-    .projects { display:flex; flex-direction:column; gap:2px; }
+    .projects { display:flex; flex-direction:column; gap:32px; }
 
-    .proj-card { display:grid; grid-template-columns:1fr 1fr; background:var(--surface); overflow:hidden; cursor:none; transition:background .4s; border:1px solid var(--border); }
+    .proj-card { display:grid; grid-template-columns:1fr; background:var(--surface); overflow:hidden; cursor:none; transition:background .4s; border:1px solid var(--border); }
     .proj-card:nth-child(even) { direction:rtl; }
     .proj-card:nth-child(even) > * { direction:ltr; }
     .proj-card:hover { background:var(--surface2); }
 
-    .proj-visual { position:relative; overflow:hidden; aspect-ratio:16/10; min-height:360px; }
+    .proj-visual { position:relative; overflow:hidden; aspect-ratio:16/9; min-height:360px; }
     .proj-visual-bg { position:absolute; inset:0; transition:transform .8s cubic-bezier(.25,.46,.45,.94); }
     .proj-card:hover .proj-visual-bg { transform:scale(1.04); }
     .v1 { background:linear-gradient(135deg,var(--p1) 0%,#2E4A34 50%,#1A3020 100%); }
@@ -77,50 +63,9 @@
     .proj-visual-num { font-family:'Playfair Display',serif; font-size:8rem; font-weight:400; color:rgba(255,255,255,.06); letter-spacing:-.05em; transition:color .4s,transform .4s; }
     .proj-card:hover .proj-visual-num { color:rgba(255,255,255,.1); transform:scale(1.05); }
 
-    .proj-geo { position:absolute; pointer-events:none; }
-    .geo-ring { width:160px; height:160px; border-radius:50%; border:1px solid rgba(255,255,255,.08); top:20px; right:20px; }
-    .geo-ring::before { content:''; position:absolute; width:100px; height:100px; border-radius:50%; border:1px solid rgba(255,255,255,.05); top:50%; left:50%; transform:translate(-50%,-50%); }
-    .geo-cross { width:40px; height:40px; bottom:24px; left:24px; }
-    .geo-cross::before,.geo-cross::after { content:''; position:absolute; background:rgba(255,255,255,.12); }
-    .geo-cross::before { width:100%; height:1px; top:50%; }
-    .geo-cross::after { width:1px; height:100%; left:50%; }
-    .geo-square { width:80px; height:80px; border:1px solid rgba(255,255,255,.08); bottom:30px; right:30px; transform:rotate(15deg); }
-    .geo-dots { top:24px; left:24px; display:grid; grid-template-columns:repeat(4,8px); gap:6px; }
-    .geo-dots span { width:3px; height:3px; border-radius:50%; background:rgba(255,255,255,.15); display:block; }
-
     .proj-img-cover { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:1; }
-    .proj-img-slot { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:8px; z-index:2; }
-    .img-placeholder-icon { width:36px; height:36px; border:1px solid rgba(255,255,255,.15); display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,.2); font-size:1.1rem; }
-    .img-placeholder-text { font-size:.55rem; letter-spacing:.2em; text-transform:uppercase; color:rgba(255,255,255,.2); }
-
-    .proj-info { padding:56px 60px; display:flex; flex-direction:column; justify-content:center; position:relative; }
-    .proj-index { font-family:'Playfair Display',serif; font-size:.75rem; color:var(--accent); letter-spacing:.1em; margin-bottom:8px; }
-    .proj-category { font-size:.55rem; letter-spacing:.3em; text-transform:uppercase; color:var(--muted); margin-bottom:24px; }
-    .proj-title { font-family:'Playfair Display',serif; font-size:clamp(1.8rem,2.5vw,2.6rem); font-weight:400; line-height:1.1; margin-bottom:28px; }
-    .proj-title em { font-style:italic; color:var(--accent); }
-    .proj-divider { width:40px; height:1px; background:var(--accent); margin-bottom:28px; transition:width .4s; }
-    .proj-card:hover .proj-divider { width:70px; }
-
-    .proj-tabs { display:flex; gap:0; margin-bottom:24px; border-bottom:1px solid var(--border); }
-    .proj-tab { font-size:.58rem; letter-spacing:.2em; text-transform:uppercase; padding:10px 20px 10px 0; color:var(--muted); cursor:pointer; border-bottom:2px solid transparent; margin-bottom:-1px; transition:color .3s,border-color .3s; user-select:none; }
-    .proj-tab.active { color:var(--accent); border-bottom-color:var(--accent); }
-
-    .proj-tab-content { font-size:.7rem; line-height:1.9; color:var(--muted); min-height:100px; }
-    .proj-tab-panel { display:none; }
-    .proj-tab-panel.active { display:block; }
-
-    .proj-tags { display:flex; flex-wrap:wrap; gap:6px; margin-top:16px; }
-    .tag { font-size:.52rem; letter-spacing:.15em; text-transform:uppercase; padding:5px 12px; border:1px solid var(--border); color:var(--muted); transition:border-color .3s,color .3s; }
-    .proj-card:hover .tag { border-color:rgba(212,168,83,.25); }
-
-    .proj-meta { display:flex; gap:32px; margin-top:32px; padding-top:24px; border-top:1px solid var(--border); }
-    .meta-label { font-size:.52rem; letter-spacing:.25em; text-transform:uppercase; color:var(--muted); margin-bottom:4px; }
-    .meta-val { font-size:.68rem; color:var(--text); }
-    .proj-link { margin-top:32px; display:inline-flex; align-items:center; gap:10px; font-size:.6rem; letter-spacing:.2em; text-transform:uppercase; color:var(--accent); text-decoration:none; transition:gap .3s; }
-    .proj-link:hover { gap:18px; }
-    .proj-link-arrow { width:20px; height:1px; background:var(--accent); position:relative; transition:width .3s; }
-    .proj-link:hover .proj-link-arrow { width:32px; }
-    .proj-link-arrow::after { content:''; position:absolute; right:0; top:-3px; width:6px; height:6px; border-right:1px solid var(--accent); border-top:1px solid var(--accent); transform:rotate(45deg); }
+    .proj-long { width:100%; background:#000; }
+    .proj-long img { width:100%; height:auto; display:block; }
 
     #contact { padding:160px 56px; position:relative; overflow:hidden; background:var(--surface); border-top:1px solid var(--border); }
     .contact-bg { position:absolute; font-family:'Playfair Display',serif; font-size:clamp(6rem,16vw,16rem); font-weight:400; color:rgba(255,255,255,.02); bottom:-20px; right:0; pointer-events:none; user-select:none; white-space:nowrap; letter-spacing:-.05em; }
@@ -150,7 +95,7 @@
       nav{padding:20px 24px;} .nav-r a:not(.nav-cta){display:none;}
       .hero,#work,#contact{padding-left:24px;padding-right:24px;} .hero{padding-bottom:60px;}
       .proj-card{grid-template-columns:1fr;direction:ltr!important;} .proj-card:nth-child(even)>*{direction:ltr;}
-      .proj-visual{min-height:260px;} .proj-info{padding:40px 28px;}
+      .proj-visual{min-height:260px;}
       .contact-inner{grid-template-columns:1fr;gap:48px;} .contact-right{grid-template-columns:1fr 1fr;}
       footer{flex-direction:column;gap:8px;} .sec-head{flex-direction:column;align-items:flex-start;gap:8px;}
     }
@@ -172,28 +117,12 @@
 
 <section class="hero" id="home">
   <div class="hero-bg"></div>
-  <div class="hero-grid"></div>
-  <div class="hero-num">4</div>
   <div class="hero-content">
-    <p class="hero-eyebrow">Graphic Designer — Montréal</p>
-    <h1 class="hero-title">Four projects.<br>One <em>vision.</em></h1>
-    <p class="hero-sub">Each project below is a window into how I think, design, and bring ideas to life — from first concept to final form.</p>
-    <div class="hero-actions">
-      <a href="#work" class="btn-primary">View Projects <span style="width:20px;height:1px;background:var(--bg);display:block;"></span></a>
-      <a href="mailto:hello@aidasam.com" class="btn-ghost">Get in Touch</a>
-    </div>
+    <h1 class="hero-title">Hi !, I am Aida Samzargar, I'm a Graphic Designer based in Montreal, Canada.</h1>
   </div>
-  <div class="hero-scroll"><div class="hero-scroll-line"></div>Scroll</div>
 </section>
 
 <section id="work">
-  <div class="sec-head reveal">
-    <div>
-      <div class="sec-label">Selected Work</div>
-      <h2 class="sec-title">Projects & <em>Case Studies</em></h2>
-    </div>
-    <div class="sec-count">04</div>
-  </div>
   <div class="projects">
 
     <!-- ═══ PROJECT 1 ═══ -->
@@ -201,34 +130,9 @@
       <div class="proj-visual">
         <div class="proj-visual-bg v1"></div>
         <img class="proj-img-cover" src="IMG_3745.jpg" alt="LUME coffee & bakery branding" />
-        <div class="proj-geo geo-ring"></div>
-        <div class="proj-geo geo-cross"></div>
-        <div class="proj-visual-overlay"><span class="proj-visual-num">01</span></div>
       </div>
-      <div class="proj-info">
-        <div class="proj-index">01 / 04</div>
-        <div class="proj-category">Brand Identity · 2024</div>
-        <h3 class="proj-title">LUME Coffee <em>&amp; Bakery</em></h3>
-        <div class="proj-divider"></div>
-        <div class="proj-tabs">
-          <div class="proj-tab active" onclick="tab(this,'d1')">Description</div>
-          <div class="proj-tab" onclick="tab(this,'c1')">Concept</div>
-          <div class="proj-tab" onclick="tab(this,'p1')">Process</div>
-        </div>
-        <div class="proj-tab-content">
-          <div class="proj-tab-panel active" id="d1">Visual identity, packaging and café touchpoints for LUME, a neighbourhood coffee and bakery brand. The system extends across cups, bags, receipts and campaign imagery.</div>
-          <div class="proj-tab-panel" id="c1">The concept focuses on soft light and everyday rituals. A deep green palette, warm typography and simple compositions echo the calm experience of a slow morning at LUME.</div>
-          <div class="proj-tab-panel" id="p1">From early sketches to final mockups, the project explored logo proportions, packaging formats and photography angles. Each element was tested in realistic café settings to ensure cohesion.</div>
-        </div>
-        <div class="proj-tags">
-          <span class="tag">Brand System</span><span class="tag">Packaging</span><span class="tag">Art Direction</span>
-        </div>
-        <div class="proj-meta">
-          <div class="proj-meta-item"><div class="meta-label">Client</div><div class="meta-val">LUME coffee &amp; bakery</div></div>
-          <div class="proj-meta-item"><div class="meta-label">Year</div><div class="meta-val">2024</div></div>
-          <div class="proj-meta-item"><div class="meta-label">Role</div><div class="meta-val">Brand &amp; Visual Designer</div></div>
-        </div>
-        <a href="#" class="proj-link">View Full Project <span class="proj-link-arrow"></span></a>
+      <div class="proj-long">
+        <img src="Lume.jpg" alt="LUME full project visuals" />
       </div>
     </div>
 
@@ -236,123 +140,10 @@
     <div class="proj-card reveal reveal-d1">
       <div class="proj-visual">
         <div class="proj-visual-bg v2"></div>
-        <!-- <img class="proj-img-cover" src="images/project2.jpg" alt="Project 2"> -->
-        <div class="proj-geo geo-ring"></div>
-        <div class="proj-geo geo-square"></div>
-        <div class="proj-visual-overlay"><span class="proj-visual-num">02</span></div>
-        <div class="proj-img-slot">
-          <div class="img-placeholder-icon">⊕</div>
-          <span class="img-placeholder-text">Add your image here</span>
-        </div>
+        <img class="proj-img-cover" src="Vela shades final.jpg" alt="Vela shades branding header" />
       </div>
-      <div class="proj-info">
-        <div class="proj-index">02 / 04</div>
-        <div class="proj-category">Editorial Design · 2024</div>
-        <h3 class="proj-title">Your Project <em>Title</em> Here</h3>
-        <div class="proj-divider"></div>
-        <div class="proj-tabs">
-          <div class="proj-tab active" onclick="tab(this,'d2')">Description</div>
-          <div class="proj-tab" onclick="tab(this,'c2')">Concept</div>
-          <div class="proj-tab" onclick="tab(this,'p2')">Process</div>
-        </div>
-        <div class="proj-tab-content">
-          <div class="proj-tab-panel active" id="d2">Write your project description here. What is this project about? Who is the client? What was the goal? Give visitors the full picture of what this project is and why it matters.</div>
-          <div class="proj-tab-panel" id="c2">Explain the concept and creative direction. What was your initial idea? What inspired the visual language? How does the design communicate the brand's values?</div>
-          <div class="proj-tab-panel" id="p2">Walk through your process. How did you go from brief to final design? What iterations did you explore? What challenges did you solve?</div>
-        </div>
-        <div class="proj-tags">
-          <span class="tag">Print</span><span class="tag">Layout</span><span class="tag">Editorial</span>
-        </div>
-        <div class="proj-meta">
-          <div class="proj-meta-item"><div class="meta-label">Client</div><div class="meta-val">Client Name</div></div>
-          <div class="proj-meta-item"><div class="meta-label">Year</div><div class="meta-val">2024</div></div>
-          <div class="proj-meta-item"><div class="meta-label">Role</div><div class="meta-val">Art Director</div></div>
-        </div>
-        <a href="#" class="proj-link">View Full Project <span class="proj-link-arrow"></span></a>
-      </div>
-    </div>
-
-    <!-- ═══ PROJECT 3 ═══ -->
-    <div class="proj-card reveal reveal-d2">
-      <div class="proj-visual">
-        <div class="proj-visual-bg v3"></div>
-        <!-- <img class="proj-img-cover" src="images/project3.jpg" alt="Project 3"> -->
-        <div class="proj-geo geo-ring"></div>
-        <div class="proj-geo geo-cross"></div>
-        <div class="proj-visual-overlay"><span class="proj-visual-num">03</span></div>
-        <div class="proj-img-slot">
-          <div class="img-placeholder-icon">⊕</div>
-          <span class="img-placeholder-text">Add your image here</span>
-        </div>
-      </div>
-      <div class="proj-info">
-        <div class="proj-index">03 / 04</div>
-        <div class="proj-category">Packaging Design · 2023</div>
-        <h3 class="proj-title">Your Project <em>Title</em> Here</h3>
-        <div class="proj-divider"></div>
-        <div class="proj-tabs">
-          <div class="proj-tab active" onclick="tab(this,'d3')">Description</div>
-          <div class="proj-tab" onclick="tab(this,'c3')">Concept</div>
-          <div class="proj-tab" onclick="tab(this,'p3')">Process</div>
-        </div>
-        <div class="proj-tab-content">
-          <div class="proj-tab-panel active" id="d3">Write your project description here. What is this project about? Who is the client? What was the goal? Give visitors the full picture of what this project is and why it matters.</div>
-          <div class="proj-tab-panel" id="c3">Explain the concept and creative direction. What was your initial idea? What inspired the visual language? How does the design communicate the brand's values?</div>
-          <div class="proj-tab-panel" id="p3">Walk through your process. How did you go from brief to final design? What iterations did you explore? What challenges did you solve?</div>
-        </div>
-        <div class="proj-tags">
-          <span class="tag">Packaging</span><span class="tag">3D Mockup</span><span class="tag">Illustration</span>
-        </div>
-        <div class="proj-meta">
-          <div class="proj-meta-item"><div class="meta-label">Client</div><div class="meta-val">Client Name</div></div>
-          <div class="proj-meta-item"><div class="meta-label">Year</div><div class="meta-val">2023</div></div>
-          <div class="proj-meta-item"><div class="meta-label">Role</div><div class="meta-val">Designer</div></div>
-        </div>
-        <a href="#" class="proj-link">View Full Project <span class="proj-link-arrow"></span></a>
-      </div>
-    </div>
-
-    <!-- ═══ PROJECT 4 ═══ -->
-    <div class="proj-card reveal reveal-d3">
-      <div class="proj-visual">
-        <div class="proj-visual-bg v4"></div>
-        <!-- <img class="proj-img-cover" src="images/project4.jpg" alt="Project 4"> -->
-        <div class="proj-geo geo-ring"></div>
-        <div class="proj-geo geo-dots">
-          <span></span><span></span><span></span><span></span>
-          <span></span><span></span><span></span><span></span>
-          <span></span><span></span><span></span><span></span>
-        </div>
-        <div class="proj-visual-overlay"><span class="proj-visual-num">04</span></div>
-        <div class="proj-img-slot">
-          <div class="img-placeholder-icon">⊕</div>
-          <span class="img-placeholder-text">Add your image here</span>
-        </div>
-      </div>
-      <div class="proj-info">
-        <div class="proj-index">04 / 04</div>
-        <div class="proj-category">Motion &amp; Visual Identity · 2023</div>
-        <h3 class="proj-title">Your Project <em>Title</em> Here</h3>
-        <div class="proj-divider"></div>
-        <div class="proj-tabs">
-          <div class="proj-tab active" onclick="tab(this,'d4')">Description</div>
-          <div class="proj-tab" onclick="tab(this,'c4')">Concept</div>
-          <div class="proj-tab" onclick="tab(this,'p4')">Process</div>
-        </div>
-        <div class="proj-tab-content">
-          <div class="proj-tab-panel active" id="d4">Write your project description here. What is this project about? Who is the client? What was the goal? Give visitors the full picture of what this project is and why it matters.</div>
-          <div class="proj-tab-panel" id="c4">Explain the concept and creative direction. What was your initial idea? What inspired the visual language? How does the design communicate the brand's values?</div>
-          <div class="proj-tab-panel" id="p4">Walk through your process. How did you go from brief to final design? What iterations did you explore? What challenges did you solve?</div>
-        </div>
-        <div class="proj-tags">
-          <span class="tag">Motion</span><span class="tag">Identity</span><span class="tag">Digital</span>
-        </div>
-        <div class="proj-meta">
-          <div class="proj-meta-item"><div class="meta-label">Client</div><div class="meta-val">Client Name</div></div>
-          <div class="proj-meta-item"><div class="meta-label">Year</div><div class="meta-val">2023</div></div>
-          <div class="proj-meta-item"><div class="meta-label">Role</div><div class="meta-val">Designer</div></div>
-        </div>
-        <a href="#" class="proj-link">View Full Project <span class="proj-link-arrow"></span></a>
+      <div class="proj-long">
+        <img src="Vela shades final.jpg" alt="Vela shades full project visuals" />
       </div>
     </div>
 
@@ -398,19 +189,10 @@
     ring.style.left=rx+'px';ring.style.top=ry+'px';
     requestAnimationFrame(tick);
   })();
-  document.querySelectorAll('a,button,.proj-tab').forEach(el=>{
+  document.querySelectorAll('a,button').forEach(el=>{
     el.addEventListener('mouseenter',()=>{cur.style.width='14px';cur.style.height='14px';ring.style.opacity='0.8';});
     el.addEventListener('mouseleave',()=>{cur.style.width='8px';cur.style.height='8px';ring.style.opacity='0.4';});
   });
-
-  // Tabs
-  function tab(el,panelId){
-    const card=el.closest('.proj-card');
-    card.querySelectorAll('.proj-tab').forEach(t=>t.classList.remove('active'));
-    card.querySelectorAll('.proj-tab-panel').forEach(p=>p.classList.remove('active'));
-    el.classList.add('active');
-    document.getElementById(panelId).classList.add('active');
-  }
 
   // Scroll reveal
   const obs=new IntersectionObserver(entries=>{
