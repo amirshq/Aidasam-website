@@ -9,11 +9,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg: #060606;
-      --surface: #101010;
-      --text: #f3f3f3;
-      --muted: #a3a3a3;
-      --line: rgba(255, 255, 255, 0.09);
+      --bg: #050505;
+      --surface: #0d0d0d;
+      --text: #f4f4f4;
+      --muted: #8f8f8f;
+      --line: rgba(255, 255, 255, 0.08);
     }
 
     * {
@@ -31,18 +31,18 @@
     }
 
     .page {
-      width: min(1120px, 92vw);
+      width: min(1360px, 96vw);
       margin: 0 auto;
-      padding: 28px 0 60px;
+      padding: 22px 0 54px;
     }
 
     .nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 70px;
+      margin-bottom: 56px;
       border-bottom: 1px solid var(--line);
-      padding-bottom: 18px;
+      padding-bottom: 14px;
     }
 
     .nav-left {
@@ -55,57 +55,57 @@
     }
 
     .brand {
-      font-size: 34px;
-      font-weight: 600;
+      font-size: 32px;
+      font-weight: 500;
       text-align: center;
       letter-spacing: 0.02em;
-      max-width: 680px;
-      margin: 0 auto 70px;
+      max-width: 760px;
+      margin: 0 auto 44px;
     }
 
     .helper {
       text-align: center;
       color: var(--muted);
-      margin-top: 12px;
-      margin-bottom: 40px;
-      font-size: 14px;
+      margin-top: 8px;
+      margin-bottom: 28px;
+      font-size: 12px;
     }
 
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 20px;
+      gap: 24px;
     }
 
     .project-card {
       border: 1px solid var(--line);
       background: var(--surface);
       overflow: hidden;
-      border-radius: 16px;
-      transition: transform 0.25s ease, border-color 0.25s ease;
+      border-radius: 10px;
+      transition: transform 0.22s ease, border-color 0.22s ease;
       cursor: pointer;
       color: inherit;
       text-decoration: none;
     }
 
     .project-card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(255, 255, 255, 0.25);
+      transform: translateY(-3px);
+      border-color: rgba(255, 255, 255, 0.2);
     }
 
     .project-card img {
       width: 100%;
-      height: 320px;
+      height: 430px;
       object-fit: cover;
       display: block;
     }
 
     .project-card .name {
-      padding: 14px 14px 16px;
-      font-size: 13px;
+      padding: 12px 14px 14px;
+      font-size: 11px;
       text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: #e5e5e5;
+      letter-spacing: 0.2em;
+      color: #dadada;
     }
 
     .modal {
@@ -124,12 +124,12 @@
     }
 
     .modal-inner {
-      width: min(980px, 100%);
+      width: min(1200px, 100%);
       max-height: 92vh;
       overflow: auto;
       background: #0c0c0c;
       border: 1px solid var(--line);
-      border-radius: 14px;
+      border-radius: 10px;
     }
 
     .modal-head {
@@ -145,7 +145,7 @@
     }
 
     .modal-title {
-      font-size: 13px;
+      font-size: 11px;
       letter-spacing: 0.16em;
       text-transform: uppercase;
       color: #e5e5e5;
@@ -160,7 +160,7 @@
       text-transform: uppercase;
       padding: 8px 11px;
       cursor: pointer;
-      border-radius: 8px;
+      border-radius: 6px;
     }
 
     .modal-image {
@@ -170,17 +170,13 @@
     }
 
     @media (max-width: 800px) {
-      .brand {
-        font-size: 28px;
-      }
+      .brand { font-size: 26px; }
 
       .projects-grid {
         grid-template-columns: 1fr;
       }
 
-      .project-card img {
-        height: 280px;
-      }
+      .project-card img { height: 320px; }
     }
   </style>
 </head>
